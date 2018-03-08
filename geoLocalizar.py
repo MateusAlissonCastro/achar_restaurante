@@ -23,6 +23,6 @@ def GeoLocalizar(localidade):
     # API da bilbioteca json que importamos: https://docs.python.org/3/library/json.html
     # O método loads() transforma a string JSON em um objeto python correspondente, ou seja, um dicionário
     content = json.loads(h.request(url, 'GET')[1].decode('utf-8'))
-    lat = '-7.9692976, '
-    lng = '-59.77434709999999'
+    lat = content ['results'][0]['geometry']['location']['lat']
+    lng = content ['results'][0]['geometry']['location']['lng']
     return (lat, lng)
